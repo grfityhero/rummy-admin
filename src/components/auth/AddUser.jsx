@@ -69,7 +69,7 @@ export default function AddUser(props) {
                 <div className="col-lg-12 text-center justify-content-center d-flex flex-column p-0">
                     <div className=" d-flex align-items-center justify-content-between py-2 custom-modal-header mb-4">
                         <div className="text-capitalize m-0 section-title">
-                            <p>{user._id ? "Edit User" : "Add user"}</p>
+                            <p>{user?._id ? "Edit User" : "Add user"}</p>
                         </div>
                         <div
                             className="app-fs-20 app-fw-600 text-right cursor-pointer "

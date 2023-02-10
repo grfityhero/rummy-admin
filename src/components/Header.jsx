@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import { getToken, getUserAccountType, getUserName, logout } from "../actions/constant"
 import ForgotPassword from "./auth/Forgot-Password"
 import Login from "./auth/Login"
@@ -12,6 +12,7 @@ export default function Header(props) {
 
   const token = getToken()
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
+  const loc = useLocation()
 
   return (
     <>
@@ -29,7 +30,7 @@ export default function Header(props) {
       {forgetPass && <ForgotPassword isOpen={forgetPass} openL={forgetPass} toggleForgetPass={toggleForgetPass} />}
 
       <div className="header">
-        <div className="header-border custome-container mt-30">
+        <div className="header-border custome-container">
           <div className="d-flex">
             {getUserAccountType() === "admin" && (
               <div className="menu-items">
@@ -37,11 +38,11 @@ export default function Header(props) {
                 <div
                 // className="green"
                 >
-                  <a href="/rooms">
+                  <a href="/rooms" className={loc.pathname === "/rooms" ? "active" : ""}>
                     Rooms
                     {/* ניהול חדרים  */}
                   </a>
-                  <a href="/users">
+                  <a href="/users" className={loc.pathname === "/users" ? "active" : ""}>
                     Users
                     {/* ניהול משתמשים  */}
                   </a>
@@ -78,7 +79,7 @@ export default function Header(props) {
               <span onClick={() => logout()} className="logout">
                 Logout
                 {/* יציאה  */}
-                {u_name}
+                <span className="ml-2">{getUserName()}</span>
               </span>
             ) : (
               <span className="logout" onClick={() => toggleLogin()}>

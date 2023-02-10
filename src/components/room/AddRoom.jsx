@@ -1,8 +1,6 @@
-import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import Modal from 'react-modal/lib/components/Modal';
-import { storage } from '../../actions/firebase';
 import { addRoomAction, editRoomAction } from '../../actions/roomAction';
 import { trimJSON } from '../../utils/commonUtils';
 

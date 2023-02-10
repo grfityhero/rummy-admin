@@ -153,7 +153,7 @@ function Home() {
       />
 
       <div id="hero">
-        <div className="custome-container mt-30">
+        <div className="custome-container">
           <div className="time-table">
             <div className="row " style={{ direction: "rtl" }}>
               {loading ? (

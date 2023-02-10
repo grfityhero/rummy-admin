@@ -4,12 +4,12 @@ import { Link } from "react-router-dom"
 import Box from "@mui/material/Box"
 import { createTheme, ThemeProvider } from "@mui/material/styles"
 // import { DataGridPro as DataGrid, GridToolbar, enUS, useGridApiRef } from '@mui/x-data-grid-pro';
-import { LicenseInfo } from "@mui/x-license-pro"
+// import { LicenseInfo } from "@mui/x-license-pro"
 import { fDateTime4 } from "../components/constant"
-import { DataGridPro as DataGrid, GridToolbar, useGridApiRef, enUS, heIL, gridVisibleSortedRowEntriesSelector } from "@mui/x-data-grid-pro"
+// import { DataGridPro as DataGrid, GridToolbar, useGridApiRef, enUS, heIL, gridVisibleSortedRowEntriesSelector } from "@mui/x-data-grid-pro"
 import Loading from "../components/Loading"
 
-LicenseInfo.setLicenseKey("61628ce74db2c1b62783a6d438593bc5Tz1NVUktRG9jLEU9MTY4MzQ0NzgyMTI4NCxTPXByZW1pdW0sTE09c3Vic2NyaXB0aW9uLEtWPTI=")
+// LicenseInfo.setLicenseKey("61628ce74db2c1b62783a6d438593bc5Tz1NVUktRG9jLEU9MTY4MzQ0NzgyMTI4NCxTPXByZW1pdW0sTE09c3Vic2NyaXB0aW9uLEtWPTI=")
 
 const theme = createTheme(
   {
@@ -24,7 +24,7 @@ const theme = createTheme(
   },
   // enUS
   // hiIN
-  heIL
+  // heIL
 )
 
 function reports() {
@@ -187,7 +187,7 @@ function reports() {
             </div>
 
             {loading ? <Loading /> : <div style={{ height: 700, width: "100%" }}>
-              <DataGrid
+              {/* <DataGrid
                 apiRef={apiRef}
                 onFilterModelChange={(params) => {
                   setFiltered(!filtered)
@@ -207,7 +207,7 @@ function reports() {
                 rows={rows}
                 columns={cols}
                 loading={loading}
-              />
+              /> */}
             </div>
             }
           </Box>

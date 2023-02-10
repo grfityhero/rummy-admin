@@ -1,7 +1,5 @@
-import { deleteObject, ref } from 'firebase/storage';
 import React, { useState } from 'react';
 import Modal from 'react-modal/lib/components/Modal';
-import { storage } from '../../actions/firebase';
 import { editRoomAction } from '../../actions/roomAction';
 
 function DeleteRoom(props) {
@@ -20,15 +18,6 @@ function DeleteRoom(props) {
                 if (!error) {
                     setSending(false);
                     if (room.image) {
-                        const img = ref(storage, selDeleteRoom.image);
-                        deleteObject(img).then(() => {
-                            setSuccess('Room Updated Successfully');
-                            setTimeout(() => {
-                                toggleDeleteRoom()
-                            }, 1000);
-                            getRooms()
-                        }).catch((error) => {
-                        });
                     } else {
                         setSuccess('Room Updated Successfully');
                         setTimeout(() => {

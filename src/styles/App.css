@@ -466,7 +466,7 @@ table {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0px 42px;
+  padding: 8px 42px;
   background: #fff;
   margin-bottom: 20px;
   width: 100%;
@@ -474,6 +474,7 @@ table {
   z-index: 2;
   box-shadow: 0 2px 8px 0 rgba(16, 7, 104, 0.07) !important;
   direction: rtl;
+  top: 0;
 }
 
 .footer {
@@ -590,7 +591,6 @@ table {
   color: var(--primary);
   font-weight: 600;
   text-decoration: none;
-  letter-spacing: 3px;
 }
 
 .app-title {
@@ -616,7 +616,7 @@ table {
 .menu-items a,
 .logout {
   text-decoration: none;
-  padding: 2px;
+  padding: 2px 8px;
   transition: all 200ms;
   color: var(--primary);
   font-weight: bold;
@@ -778,7 +778,7 @@ table {
 }
 
 .placeholder {
-  height: 64px;
+  height: 80px;
 }
 
 #legal {
@@ -886,9 +886,7 @@ button:disabled {
   transition: all 600ms;
   font-size: 14px;
   font-weight: 600;
-  padding: 12px 0;
   text-align: center;
-  padding: 9.6px 16px;
   cursor: pointer !important;
 }
 
@@ -943,15 +941,15 @@ button:disabled {
 }
 
 #room .add-btn button {
-  min-width: auto;
+  /* min-width: auto; */
 }
 
 #room .row .col-lg-4 {
-  padding: 6px;
+  padding: 12px;
 }
 
 #room .room-card {
-  padding: 10px;
+  padding: 16px;
   background-color: #fbfbfb;
   border-radius: 8px;
   box-shadow: 0 2px 4px 0 #00000033;
@@ -963,7 +961,7 @@ button:disabled {
   display: flex;
   justify-content: space-between;
   gap: 20px;
-  padding-bottom: 16px;
+  padding-bottom: 8px;
 }
 
 #room .room-header .room-heading {
@@ -975,8 +973,9 @@ button:disabled {
 }
 
 #room .room-card .room-description {
-  font-size: 16px;
+  font-size: 14px;
   text-align: justify;
+  margin-bottom: 4px;
 }
 
 #room .edit-btn {
@@ -1557,6 +1556,11 @@ input[type="radio"] {
 
 .password__show:hover {
   color: var(--primary);
+}
+
+.room-btns {
+  gap: 12px;
+  padding-top: 12px;
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 768px) {

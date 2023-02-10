@@ -4,7 +4,6 @@ import PageNotFound from './pages/404';
 import Home from './pages/home';
 import Room from './pages/room';
 import Reports from './pages/reports';
-import Testgrid from './pages/testgrid';
 import Subscription from './pages/subscription';
 import ResetPassword from './pages/reset-password';
 import Verify from './pages/verify';

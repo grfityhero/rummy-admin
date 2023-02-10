@@ -487,6 +487,21 @@ a {
   margin-bottom: auto;
 }
 
+.data-heading {
+  font-size: 16px;
+  font-weight: 600;
+  min-width: 50px;
+  display: inline-block;
+  text-transform: capitalize;
+  color: #444;
+  margin-right: 8px;
+}
+
+.data-desc {
+  font-size: 14px;
+  font-weight: 500;
+}
+
 @media only screen and (min-device-width: 320px) and (max-device-width: 900px) {
   .rooms-scroll .col-lg-4.pl-0 {
     padding-right: 0;

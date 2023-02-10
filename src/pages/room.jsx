@@ -47,7 +47,7 @@ export default function Room() {
       {openDelete && <DeleteRoom isOpen={openDelete} toggleDeleteRoom={() => setOpenDelete(!openDelete)} getRooms={getRooms} selDeleteRoom={selDeleteRoom} />}
 
       <section id="room">
-        <div className="custome-container mt-30">
+        <div className="custome-container">
           <div className="text-right add-btn">
             <div className="section-title">
               Rooms
@@ -58,8 +58,7 @@ export default function Room() {
               onClick={() => {
                 setAddRoom(!addRoom)
                 setSelRoom(null)
-              }}
-            >
+              }}>
               Add
               {/* הוספת חדר */}
             </button>
@@ -75,7 +74,7 @@ export default function Room() {
                   <div className="col-lg-4 col-md-6" key={i}>
                     <div className="room-card">
                       <div className="room-header">
-                        <h2 className="room-heading">{e.type} ( {e.status})</h2>
+                        <h2 className="room-heading">{e.type} ({e.status})</h2>
                         <div className="d-flex">
                           <button className="edit-btn" onClick={() => setSelRoom(e)}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -96,11 +95,11 @@ export default function Room() {
                         </div>
                       </div>
 
-                      <div>Room code: {e.code}</div>
-                      <div>Room Cost: {e.roomCost}</div>
-                      <div>Room Players Num: {e.playersNum}</div>
-                      <div>Room Players: {e.players.map(e => e + ", ")}</div>
-                      <div>Room Winnder: {e.winner}</div>
+                      <div><span className="data-heading">Room code:</span><span className="data-desc">{e.code}</span></div>
+                      <div><span className="data-heading">Room Cost:</span><span className="data-desc">{e.roomCost}/-</span></div>
+                      <div><span className="data-heading">Room Players Num:</span><span className="data-desc">{e.playersNum}</span></div>
+                      <div><span className="data-heading">Room Players: </span><span className="data-desc">{e.players.map(e => e + ", ")}</span></div>
+                      <div><span className="data-heading">Room Winner: </span><span className="data-desc">{e.winner}</span></div>
 
                       {/* <img
                         src={e.image || "https://www.fkointech.com/images/services/WD.webp"}
