@@ -99,7 +99,7 @@ export default function Users() {
         user={user}
       />}
 
-      <Header admin={true} />
+      <Header />
       <div className="placeholder"></div>
       <section id="room">
         <div className="custome-container mt-20">

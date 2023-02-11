@@ -43,7 +43,7 @@ const getUserId = function getUserId() {
 };
 
 const getUserName = function getUserName() {
-    return localStorage.getItem("u_name")
+    return localStorage.getItem("u_name") || ""
 }
 
 

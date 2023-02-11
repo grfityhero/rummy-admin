@@ -31,7 +31,7 @@ export default function Room() {
 
   return (
     <>
-      <Header admin={true} />
+      <Header />
       <div className="placeholder"></div>
       {addRoom && (
         <AddRoom

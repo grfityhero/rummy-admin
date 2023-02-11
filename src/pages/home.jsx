@@ -56,6 +56,7 @@ function Home() {
         } else {
           if (data !== null) {
             setProfile(data)
+            localStorage.setItem("u_name", data.userName)
           }
         }
       })
