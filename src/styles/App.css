@@ -467,7 +467,7 @@ table {
   justify-content: space-between;
   align-items: center;
   padding: 8px 42px;
-  background: #fff;
+  background: var(--secondary);
   margin-bottom: 20px;
   width: 100%;
   position: fixed;
@@ -588,14 +588,14 @@ table {
 
 .app-title a {
   font-size: 35px;
-  color: var(--primary);
+  color: #fff;
   font-weight: 600;
   text-decoration: none;
 }
 
 .app-title {
   font-size: 20px;
-  color: var(--primary);
+  color: #fff;
   font-weight: 600;
   text-decoration: none;
   text-align: left;
@@ -612,13 +612,30 @@ table {
 
 }
 
+.logout {
+  background: white !important;
+  color: var(--secondary) !important;
+  border-radius: 1000px !important;
+  padding: 8px 12px !important;
+  margin-left: 20px;
+  min-width: 100px;
+  text-align: center;
+}
+
+.MuiDataGrid-toolbarContainer button {
+  color: var(--secondary) !important;
+  font-weight: 600;
+}
+
 .menu-items span,
 .menu-items a,
 .logout {
   text-decoration: none;
-  padding: 2px 8px;
+  padding: 4px 8px;
   transition: all 200ms;
-  color: var(--primary);
+  color: #fff;
+  display: inline-block;
+  border-bottom: 2px solid transparent;
   font-weight: bold;
   font-family: "Rubik", sans-serif;
   cursor: pointer;
@@ -629,8 +646,8 @@ table {
 }
 
 .menu-items span.active {
-  border-bottom: 2px solid #00000000;
-  color: var(--secondary);
+  border-bottom: 2px solid #fff;
+  color: #fff;
 }
 
 /* 
@@ -639,7 +656,8 @@ table {
 } */
 
 .menu-items .active {
-  color: var(--secondary) !important;
+  border-bottom: 2px solid #fff;
+  color: #fff !important;
 }
 
 .border-bottom {
@@ -778,7 +796,7 @@ table {
 }
 
 .placeholder {
-  height: 80px;
+  height: 84px;
 }
 
 #legal {
@@ -1498,6 +1516,11 @@ textarea::placeholder {
   font-size: 12px;
   color: #919eabc9 !important;
   text-transform: capitalize;
+}
+
+select {
+  border-radius: 4px;
+  background-color: white;
 }
 
 input:focus,

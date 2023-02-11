@@ -45,3 +45,17 @@ export function editRoomAction(params, callback) {
             callback({ error: getError(error) })
         })
 }
+
+
+
+
+export function deleteRoomAction(params, callback) {
+    axios.delete(`${URLS.API}/room/${params._id}`, API_CONFIG)
+        .then(function (response) {
+
+            callback({ data: response.data.data })
+        })
+        .catch(function (error) {
+            callback({ error: getError(error) })
+        })
+}

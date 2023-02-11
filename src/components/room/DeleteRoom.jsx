@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal/lib/components/Modal';
-import { editRoomAction } from '../../actions/roomAction';
+import { deleteRoomAction, editRoomAction } from '../../actions/roomAction';
 
 function DeleteRoom(props) {
     const { selDeleteRoom, toggleDeleteRoom, getRooms, isOpen } = props
@@ -14,12 +14,12 @@ function DeleteRoom(props) {
             setSuccess(false);
             setError('');
             setSending(true);
-            editRoomAction(selDeleteRoom, ({ error }) => {
+            deleteRoomAction(selDeleteRoom, ({ error }) => {
                 if (!error) {
                     setSending(false);
                     if (room.image) {
                     } else {
-                        setSuccess('Room Updated Successfully');
+                        setSuccess('Room Deleted Successfully');
                         setTimeout(() => {
                             toggleDeleteRoom()
                         }, 1000);

@@ -145,7 +145,7 @@ export default function Login(props) {
                   </button>
                 </div>
                 <div className="col-lg-12 p-0 text-center mb-8">
-                  <div className="d-flex justify-content-center app-fs-14 ">
+                  {/* <div className="d-flex justify-content-center app-fs-14 ">
                     <div className="text-primary">לקוח חדש</div>
                     <div
                       onClick={() => {
@@ -156,7 +156,7 @@ export default function Login(props) {
                     >
                       יצירת חשבון
                     </div>
-                  </div>
+                  </div> */}
                   <div className="d-flex justify-content-center app-fs-14 ">
                     <div
                       onClick={() => {

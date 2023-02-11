@@ -101,7 +101,7 @@ function Home() {
   ))
   return (
     <>
-      {sessionModal && (
+      {/* {sessionModal && (
         <AddSession
           selSession={selSession}
           roomId={roomId}
@@ -121,9 +121,9 @@ function Home() {
           }}
           profile={profile}
         />
-      )}
+      )} */}
 
-      {currentRoom && openCurrentRoom && (
+      {/* {currentRoom && openCurrentRoom && (
         <RoomDetail
           show={openCurrentRoom}
           room={currentRoom}
@@ -131,7 +131,7 @@ function Home() {
             setOpenCurrentRoom(!openCurrentRoom)
           }}
         />
-      )}
+      )} */}
 
       <Header
         u_name={curUserName}
@@ -154,20 +154,11 @@ function Home() {
       />
 
       <div id="hero">
+        <div className="placeholder" />
         <div className="custome-container">
-          <div className="time-table">
-            <div className="row " style={{ direction: "rtl" }}>
-              {loading ? (
-                <div width="100%">
-                  <Loading />
-                </div>
-              ) : (
-                <div>
-                  <Link to="/users">Users</Link>
-                  <Link to="/rooms">Rooms </Link>
-
-                </div>
-              )}
+          <div className="time-table d-flex align-items-center justify-content-center" style={{ minHeight: "80vh" }}>
+            <div className="row justify-content-center" style={{ direction: "ltr" }}>
+              <div className="text-secondary" style={{ fontSize: 20 }}>Please Login to your account.</div>
             </div>
           </div>
         </div>

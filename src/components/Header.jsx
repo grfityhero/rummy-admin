@@ -32,25 +32,47 @@ export default function Header(props) {
       <div className="header">
         <div className="header-border custome-container">
           <div className="d-flex">
-            {getUserAccountType() === "admin" && (
-              <div className="menu-items">
+            <div className="menu-items">
 
-                <div
-                // className="green"
-                >
-                  <a href="/rooms" className={loc.pathname === "/rooms" ? "active" : ""}>
-                    Rooms
-                    {/* ניהול חדרים  */}
-                  </a>
-                  <a href="/users" className={loc.pathname === "/users" ? "active" : ""}>
-                    Users
-                    {/* ניהול משתמשים  */}
-                  </a>
-                  {/* <a href="/reports"> דוחות </a> */}
-                  {/* <a href="/subscriptions"> מנויים </a> */}
-                </div>
+              <div
+                style={{ direction: "ltr" }}
+              // className="green"
+              >
+                {getUserAccountType() === "admin" && (
+                  <>
+                    <Link to="/" className={loc.pathname === "/" ? "active" : ""}>
+                      Rooms
+                      {/* ניהול חדרים  */}
+                    </Link>
+                    <Link to="/reports" className={loc.pathname === "/reports" ? "active" : ""}>
+                      Reports
+                      {/* ניהול חדרים  */}
+                    </Link>
+
+                    <Link to="/users" className={loc.pathname === "/users" ? "active" : ""}>
+                      Users
+                      {/* ניהול משתמשים  */}
+                    </Link>
+                  </>
+                )}
+                {/* <a href="/reports"> דוחות </a> */}
+                {/* <a href="/subscriptions"> מנויים </a> */}
+
+                {token ? (
+                  <span onClick={() => {
+                    navigate("/")
+                    logout()
+                  }} className="logout">
+                    Logout
+                  </span>
+                ) : (
+                  <span className="logout" onClick={() => toggleLogin()}>
+                    {" "}Login
+                    {/* כניסה למערכת{" "} */}
+                  </span>
+                )}
               </div>
-            )}
+            </div>
             {/* {admin === true
               ? ""
               : rooms.length > 0 && (
@@ -75,21 +97,7 @@ export default function Header(props) {
                 </div>
               )} */}
 
-            {token ? (
-              <span onClick={() => {
-                navigate("/")
-                logout()
-              }} className="logout">
-                Logout
-                {/* יציאה  */}
-                <span className="ml-2">{getUserName()}</span>
-              </span>
-            ) : (
-              <span className="logout" onClick={() => toggleLogin()}>
-                {" "}Login
-                {/* כניסה למערכת{" "} */}
-              </span>
-            )}
+
           </div>
           <div className="app-title">
             <Link to="/">
@@ -130,12 +138,12 @@ export default function Header(props) {
                 navigate("/")
                 logout()
               }}>
-              <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd">
+              <svg fill="#fff" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd">
                 <path d="M24 22h-20v-7h2v5h16v-16h-16v5h-2v-7h20v20zm-13-11v-4l6 5-6 5v-4h-11v-2h11z" />
               </svg>
             </div>
           ) : (
-            <div onClick={() => toggleLogin()} className="text-secondary app-fs-14 app-fw-600">
+            <div onClick={() => toggleLogin()} className="text-white app-fs-14 app-fw-600">
               Login
             </div>
           )}
@@ -145,15 +153,21 @@ export default function Header(props) {
         {getUserAccountType() === "admin" && (
           <>
             {getUserAccountType() === "admin" && (<>
-              <a href="/rooms" className="mobile-link">
+              <Link to="/" className="mobile-link">
                 Rooms
                 {/* ניהול כל החדרים */}
-              </a>
+              </Link>
+              <Link to="/reports" className="mobile-link">
+                Reports
+                {/* ניהול כל החדרים */}
+              </Link>
 
-              <a href="/users" className="mobile-link">
+
+              <Link to="/users" className="mobile-link">
                 Users
                 {/* ניהול כל החדרים */}
-              </a></>
+              </Link>
+            </>
             )}
 
             {/* {rooms.map((e, i) => {

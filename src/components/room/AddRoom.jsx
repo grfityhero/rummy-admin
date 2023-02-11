@@ -13,17 +13,18 @@ function AddRoom(props) {
 
     const [cost, setCost] = useState(selRoom?.roomCost || 0)
     const [no, setNo] = useState(selRoom?.playersNum || 0)
-
+    const [SBT, setSBT] = useState(selRoom?.standbyTime || 0)
     useEffect(() => {
         if (selRoom) {
             setCost(selRoom.roomCost)
+            setSBT(selRoom.standbyTime)
             setNo(selRoom.playersNum)
         }
     }, [])
 
     console.log(selRoom, cost, no)
     const onSubmit = () => {
-        const v = { ...selRoom, roomCost: cost, playersNum: no }
+        const v = { ...selRoom, roomCost: cost, playersNum: no, standbyTime: SBT }
         if (!cost) {
             setError("Cost Required")
             return
@@ -32,7 +33,10 @@ function AddRoom(props) {
             setError("no Required")
             return
         }
-
+        if (SBT < 0) {
+            setError("Stand by time sholud be positive value.")
+            return
+        }
         const values = trimJSON(v)
         if (values) {
             setSuccess(false);
@@ -109,9 +113,9 @@ function AddRoom(props) {
                             {loading ? "" : <div className='row'>
                                 <div className="col-lg-12 col-xl-12 col-sm-12 p-0">
                                     <div className="form-group">
-
                                         <label className="input">
-                                            <span className="input__label">Cost //שם חדר
+                                            <span className="input__label">Cost
+                                                {/* שם חדר */}
                                                 <span className="required ms-1 st-fs-12"> *</span>
                                             </span>
                                             <input className="input__field"
@@ -153,14 +157,38 @@ function AddRoom(props) {
                                 <div className="col-lg-12 col-xl-12 col-sm-12 p-0">
                                     <div className="form-group mt-3">
                                         <label className="input">
-                                            <span className="input__label">Player No //תאור
+                                            <span className="input__label">Player No
+                                                {/* תאור */}
                                             </span>
-                                            <input className="input__field"
+                                            <select className="input__field"
                                                 rows={6}
                                                 placeholder="PlayerNo"//"תאור"
                                                 value={no}
                                                 onChange={(e) => {
                                                     setNo(e.target.value)
+                                                    setError("")
+                                                }}>
+                                                <option value="">Select Player Num</option>
+                                                <option value={2}>2</option>
+                                                <option value={3}>3</option>
+                                                <option value={4}>4</option>
+                                            </select>
+
+                                        </label>
+                                    </div>
+                                </div>
+                                <div className="col-lg-12 col-xl-12 col-sm-12 p-0">
+                                    <div className="form-group mt-3">
+                                        <label className="input">
+                                            <span className="input__label">Standby Time
+                                                {/* תאור */}
+                                            </span>
+                                            <input className="input__field"
+                                                type="number"
+                                                placeholder="Standby Time"//"תאור"
+                                                value={SBT}
+                                                onChange={(e) => {
+                                                    setSBT(e.target.value)
                                                     setError("")
                                                 }}
                                             />

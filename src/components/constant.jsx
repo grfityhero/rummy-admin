@@ -1,7 +1,7 @@
 import { format } from "date-fns"
 
 export const WEEKDAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-export const STATUS = ["Active", "Inactive"];
+// export const STATUS = ["Active", "Inactive"];
 
 export function todayDay() {
     const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -44,3 +44,6 @@ export function fDateTime4(date) {
     console.log(">>>", date)
     return format(new Date(date), 'dd/MM/yyyy');
 }
+
+
+export const STATUS = ["new", "active", "cancel", "over"]

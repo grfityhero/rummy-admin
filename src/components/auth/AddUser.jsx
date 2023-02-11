@@ -42,7 +42,7 @@ export default function AddUser(props) {
         // }
 
         setError("")
-
+        setLoading(true)
         addUserAction({ ...user, phone, userName: name, points: points || 0 }, ({ b, data, error }) => {
             setLoading(false)
             if (b) {

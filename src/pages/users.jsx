@@ -30,9 +30,10 @@ const User = ({ e, i, getUsers, edit }) => {
           <h2 className="room-heading">{e.userName} {"(" + e.accountType + ")"}</h2>
         </div>
         {/* <p className={`mb-0 text-capitalize mt-0 ${e.status === "active" ? "app-badge-active" : "app-badge-inactive"}`}>{e.status === "active" ? "active" : "block"}</p> */}
-        {e.email && <p className="mt-0 room-description">Email: {e.email}</p>}
-        <p className="mt-0 room-description">Phone: {e.phone}</p>
-        <p className="mt-0 room-description">Points: {e.points}</p>
+        {e.email && <div><span className="data-heading">Email:</span><span className="data-desc">{e.email}</span></div>}
+        <div><span className="data-heading">Phone:</span><span className="data-desc">{e.phone}</span></div>
+        <div><span className="data-heading">Points:</span><span className="data-desc"> {e.points}</span></div>
+        <div><span className="data-heading">Status:</span> <span className="data-desc">{e.status}</span></div>
         <div className="d-flex room-btns">
           <button
             className="btn-primary w-auto"

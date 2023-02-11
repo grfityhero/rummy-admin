@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react"
+import { getProfileAction } from "../actions/authActon"
+import { getAccessToken } from "../actions/constant"
 import { getRoomActions } from "../actions/roomAction"
 import Header from "../components/Header"
 import Loading from "../components/Loading"
@@ -13,8 +15,20 @@ export default function Room() {
   const [selRoom, setSelRoom] = useState(null)
   const [selDeleteRoom, setSelDeleteRoom] = useState(null)
   const [openDelete, setOpenDelete] = useState(false)
-
+  const [profile, setProfile] = useState(null)
   useEffect(() => {
+    if (getAccessToken()) {
+      getProfileAction(({ data, error }) => {
+        if (error) {
+          setError(error)
+        } else {
+          if (data !== null) {
+            setProfile(data)
+            localStorage.setItem("u_name", data.userName)
+          }
+        }
+      })
+    }
     getRooms()
   }, [])
 
@@ -96,10 +110,10 @@ export default function Room() {
                       </div>
 
                       <div><span className="data-heading">Room code:</span><span className="data-desc">{e.code}</span></div>
-                      <div><span className="data-heading">Room Cost:</span><span className="data-desc">{e.roomCost}/-</span></div>
+                      <div><span className="data-heading">Room Cost:</span><span className="data-desc">{e.roomCost}</span></div>
                       <div><span className="data-heading">Room Players Num:</span><span className="data-desc">{e.playersNum}</span></div>
                       <div><span className="data-heading">Room Players: </span><span className="data-desc">{e.players.map(e => e + ", ")}</span></div>
-                      <div><span className="data-heading">Room Winner: </span><span className="data-desc">{e.winner}</span></div>
+                      {e.winner && <div><span className="data-heading">Room Winner: </span><span className="data-desc">{e.winner}</span></div>}
 
                       {/* <img
                         src={e.image || "https://www.fkointech.com/images/services/WD.webp"}
