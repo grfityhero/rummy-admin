@@ -1,14 +1,12 @@
 import { useState } from "react"
 import { Link, useLocation, useNavigate } from "react-router-dom"
-import { getToken, getUserAccountType, getUserName, logout } from "../actions/constant"
+import { getToken, getUserAccountType, logout } from "../actions/constant"
 import ForgotPassword from "./auth/Forgot-Password"
 import Login from "./auth/Login"
 import Register from "./auth/Register"
 
 export default function Header(props) {
-  const { admin, roomId, setRoomId, rooms, onLogin, loginUser, setLoginUser, registerUser, setRegisterUser, toggleLogin, toggleRegister,
-    toggleForgetPass, setForgetPass, forgetPass, u_name
-  } = props
+  const { onLogin, loginUser, registerUser, toggleLogin, toggleRegister, toggleForgetPass, forgetPass } = props
   const navigate = useNavigate()
   const token = getToken()
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
@@ -33,10 +31,8 @@ export default function Header(props) {
         <div className="header-border custome-container">
           <div className="d-flex">
             <div className="menu-items">
-
               <div
                 style={{ direction: "ltr" }}
-              // className="green"
               >
                 {getUserAccountType() === "admin" && (
                   <>
@@ -55,8 +51,6 @@ export default function Header(props) {
                     </Link>
                   </>
                 )}
-                {/* <a href="/reports"> דוחות </a> */}
-                {/* <a href="/subscriptions"> מנויים </a> */}
 
                 {token ? (
                   <span onClick={() => {
@@ -73,31 +67,6 @@ export default function Header(props) {
                 )}
               </div>
             </div>
-            {/* {admin === true
-              ? ""
-              : rooms.length > 0 && (
-                <div className="menu-items">
-                  <>
-                    {" "}
-                    {rooms.map((e, index) => {
-                      return (
-                        <span
-                          key={index}
-                          className={roomId === e._id ? "active" : ""}
-                          onClick={() => {
-                            setRoomId(e._id)
-                            // getSessions(e._id)
-                          }}
-                        >
-                          {e.name}
-                        </span>
-                      )
-                    })}
-                  </>
-                </div>
-              )} */}
-
-
           </div>
           <div className="app-title">
             <Link to="/">
@@ -169,22 +138,6 @@ export default function Header(props) {
               </Link>
             </>
             )}
-
-            {/* {rooms.map((e, i) => {
-              return (
-                <span
-                  className="mobile-link"
-                  key={i}
-                  onClick={() => {
-                    setMobileNavOpen(false)
-                    setRoomId(e._id)
-                  }}
-                >
-                  {" "}
-                  {e.name}
-                </span>
-              )
-            })} */}
           </>
         )}
       </nav>
