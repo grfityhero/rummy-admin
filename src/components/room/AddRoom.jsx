@@ -22,19 +22,18 @@ function AddRoom(props) {
         }
     }, [])
 
-    console.log(selRoom, cost, no)
     const onSubmit = () => {
         const v = { ...selRoom, roomCost: cost, playersNum: no, standbyTime: SBT }
-        if (!cost) {
-            setError("Cost Required")
+        if (cost < 20) {
+            setError("Cost should be greater than or equal to 20")
             return
         }
         if (!no) {
             setError("no Required")
             return
         }
-        if (SBT < 0) {
-            setError("Stand by time sholud be positive value.")
+        if (SBT < 2) {
+            setError("Stand by time should be greater than or equal to 2.")
             return
         }
         const values = trimJSON(v)
@@ -120,9 +119,10 @@ function AddRoom(props) {
                                             </span>
                                             <input className="input__field"
                                                 placeholder="Cost"
+                                                type="number"
                                                 value={cost}
                                                 onChange={(e) => {
-                                                    setCost(e.target.value)
+                                                    setCost(e.target.value || 0)
                                                     setError("")
                                                 }}
                                             />
@@ -188,7 +188,7 @@ function AddRoom(props) {
                                                 placeholder="Standby Time"//"תאור"
                                                 value={SBT}
                                                 onChange={(e) => {
-                                                    setSBT(e.target.value)
+                                                    setSBT(e.target.value || 0)
                                                     setError("")
                                                 }}
                                             />
