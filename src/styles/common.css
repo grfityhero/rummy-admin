@@ -1207,30 +1207,34 @@ a:focus-visible {
     background: #fe4c4c;
     border: none !important;
 }
-.green{
+
+.green {
     background-color: var(--secondary);
-    padding:14px;
+    padding: 14px;
     border-radius: 11px;
-    margin-left:20px;
+    margin-left: 20px;
     position: absolute;
-    top:0;
-    right:0;
-    margin-top:5px;
-    margin-right:135px;
+    top: 0;
+    right: 0;
+    margin-top: 5px;
+    margin-right: 135px;
 
 }
-.green a{
-    color:rgb(226, 225, 225)!important;
+
+.green a {
+    color: rgb(226, 225, 225) !important;
     font-weight: 300;
 }
-.green a:hover{
-    color:white!important;
+
+.green a:hover {
+    color: white !important;
     font-weight: 300;
 }
-.green a:after{
+
+.green a:after {
     content: " | ";
     color: rgb(155, 204, 181);
- 
+
 }
 
 @media (min-width: 992px) {
@@ -3205,7 +3209,7 @@ textarea.form-control.is-invalid {
     .col-sm-offset-0 {
         margin-left: 0;
     }
-  
+
 }
 
 @media (min-width: 992px) {
@@ -3736,6 +3740,11 @@ footer,
 
 .border-bottom-0 {
     border-bottom: none !important;
+}
+
+.MuiDataGrid-cellContent {
+    overflow-wrap: break-word !important;
+    white-space: pre-wrap;
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {

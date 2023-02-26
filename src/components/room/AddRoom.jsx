@@ -23,7 +23,7 @@ function AddRoom(props) {
     }, [])
 
     const onSubmit = () => {
-        const v = { ...selRoom, roomCost: cost, playersNum: no, standbyTime: SBT }
+        const v = { ...selRoom, roomCost: parseInt(cost), playersNum: no, standbyTime: parseInt(SBT) }
         if (cost < 20) {
             setError("Cost should be greater than or equal to 20")
             return

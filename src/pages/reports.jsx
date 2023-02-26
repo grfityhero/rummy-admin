@@ -42,7 +42,7 @@ export default function AllReports() {
   const rows = reports.map((e) => ({
     ...e, id: e._id,
   }))
-  console.log(rows)
+
   let columns = [
     {
       field: "code",
@@ -51,6 +51,7 @@ export default function AllReports() {
       flex: 1,
       mFlex: 11,
       filterable: true,
+      type: "number"
     },
     {
       field: "roomCost",
@@ -59,14 +60,17 @@ export default function AllReports() {
       flex: 1,
       mFlex: 11,
       filterable: true,
+      type: "number"
+
     },
     {
       field: "playersNum",
-      headerName: "Players NUm",
+      headerName: "Players Num",
       sortable: false,
       flex: 1,
       mFlex: 11,
       filterable: true,
+      type: "number"
     },
     {
       field: "status",
@@ -75,6 +79,8 @@ export default function AllReports() {
       flex: 1,
       mFlex: 11,
       filterable: true,
+      type: "singleSelect",
+      valueOptions: ["new", "active", "over", "cancled"]
     },
     {
       field: "type",
@@ -83,13 +89,23 @@ export default function AllReports() {
       flex: 1,
       mFlex: 11,
       filterable: true,
+      type: "singleSelect",
+      valueOptions: ["public", "private"]
     },
     {
       field: "players",
       headerName: "Players",
       sortable: false,
+      filterable: true,
       flex: 1,
       mFlex: 15,
+      renderCell: (v) => {
+        return <div>
+          {v.row.players.map((e) => <div key={e}>
+            {`${users.find(u => u.phone == e)?.userName} (${e})`}
+          </div>)}
+        </div>
+      }
     },
     {
       field: "winner",
@@ -98,6 +114,15 @@ export default function AllReports() {
       flex: 1,
       mFlex: 11,
       filterable: true,
+      renderCell: (v) => {
+        const e = v.row.winner || ""
+        if (!e) {
+          return "TBD"
+        }
+        return <div>
+          {`${users.find(u => u.phone == e)?.userName} (${e})`}
+        </div>
+      }
     },
   ]
 
