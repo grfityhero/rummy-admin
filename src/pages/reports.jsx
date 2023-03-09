@@ -49,7 +49,7 @@ export default function AllReports() {
       headerName: "Code",
       sortable: true,
       flex: 1,
-      mFlex: 11,
+      mFlex: 4,
       filterable: true,
       type: "number"
     },
@@ -87,7 +87,7 @@ export default function AllReports() {
       headerName: "Type",
       sortable: true,
       flex: 1,
-      mFlex: 11,
+      mFlex: 15,
       filterable: true,
       type: "singleSelect",
       valueOptions: ["public", "private"]
@@ -97,13 +97,13 @@ export default function AllReports() {
       headerName: "Players",
       sortable: false,
       filterable: true,
-      flex: 1,
+      flex: 6,
       mFlex: 15,
       renderCell: (v) => {
         return <div>
-          {v.row.players.map((e) => <div key={e}>
-            {`${users.find(u => u.phone == e)?.userName} (${e})`}
-          </div>)}
+          {v.row.players.map((e) => <span key={e}>
+            {`${users.find(u => u.phone == e)?.userName} (${e}), `}
+          </span>)}
         </div>
       }
     },
@@ -111,7 +111,7 @@ export default function AllReports() {
       field: "winner",
       headerName: "Winner",
       sortable: true,
-      flex: 1,
+      flex: 2,
       mFlex: 11,
       filterable: true,
       renderCell: (v) => {
@@ -124,6 +124,20 @@ export default function AllReports() {
         </div>
       }
     },
+    {
+      field: "prize",
+      headerName: "Prize",
+      sortable: true,
+      filterable: true,
+      flex: 1,
+      mFlex: 15,
+      type: "number",
+      renderCell: (v) => {
+        const cost = parseInt(v.row.roomCost || "0")
+        const playerNum = v.row.playersNum || 2
+        return <div>{cost * (playerNum - 1)}</div>
+      }
+    }
   ]
 
   if (isMobile) {
@@ -134,6 +148,7 @@ export default function AllReports() {
       return e
     })
   }
+
   return (
     <>
       <Header />
