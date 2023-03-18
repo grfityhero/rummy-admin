@@ -135,7 +135,22 @@ export default function AllReports() {
       renderCell: (v) => {
         const cost = parseInt(v.row.roomCost || "0")
         const playerNum = v.row.playersNum || 2
-        return <div>{cost * (playerNum - 1)}</div>
+        return <div>{v.row.winnerPoints || (cost * (playerNum))}</div>
+      }
+    },
+    {
+      field: "adminFee",
+      headerName: "Admin Fee",
+      sortable: true,
+      filterable: true,
+      flex: 1,
+      mFlex: 15,
+      type: "number",
+      renderCell: (v) => {
+        const cost = parseInt(v.row.roomCost || "0")
+        const playerNum = v.row.playersNum || 2
+        const total = cost * (playerNum)
+        return <div>{total - (v.row.winnerPoints || total)}</div>
       }
     }
   ]
