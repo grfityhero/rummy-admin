@@ -6,6 +6,7 @@ import Room from './pages/room';
 import Users from './pages/users';
 import AllReports from './pages/reports';
 import ResetPassword from './pages/reset-password';
+import Settings from './pages/settings';
 
 export default function Routing(props) {
     const accountType = getUserAccountType()
@@ -14,6 +15,7 @@ export default function Routing(props) {
         {accountType === "admin" ? <Route exact path='/' element={<Room />}></Route> : <Route exact path='/' element={<Home />}></Route>}
         {accountType === "admin" && <Route exact path='/users' element={<Users />}></Route>}
         {accountType === "admin" && <Route exact path='/reports' element={<AllReports />}></Route>}
+        {accountType === "admin" && <Route exact path='/settings' element={<Settings />}></Route>}
 
         <Route exact path='/reset-password/:id' element={<ResetPassword />}></Route>
         <Route exact path='/*' element={<PageNotFound />}></Route>

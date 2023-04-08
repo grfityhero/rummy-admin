@@ -49,6 +49,10 @@ export default function Header(props) {
                       Users
                       {/* ניהול משתמשים  */}
                     </Link>
+                    <Link to="/settings" className={loc.pathname === "/settings" ? "active" : ""}>
+                      Settings
+                      {/* ניהול משתמשים  */}
+                    </Link>
                   </>
                 )}
 
@@ -134,6 +138,10 @@ export default function Header(props) {
 
               <Link to="/users" className="mobile-link">
                 Users
+                {/* ניהול כל החדרים */}
+              </Link>
+              <Link to="/settings" className="mobile-link">
+                Settings
                 {/* ניהול כל החדרים */}
               </Link>
             </>

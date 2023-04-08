@@ -967,19 +967,60 @@ button:disabled {
 }
 
 #room .room-card {
-  padding: 16px;
+  padding: 12px;
   background-color: #fbfbfb;
   border-radius: 8px;
-  box-shadow: 0 2px 4px 0 #00000033;
+  border: 1px solid #00000033;
+  /* box-shadow: 0 2px 4px 0 #00000033; */
   height: 100%;
-
+  position: relative;
 }
+
+#room .all-rooms {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 8px;
+}
+
+.all-rooms .action-btn {
+  position: absolute;
+  right: 12px;
+}
+
+.all-rooms .block {
+  color: red !important;
+}
+
+.all-rooms .block:hover {
+  color: white !important;
+}
+
+.all-rooms .block svg,
+.all-rooms .activate svg {
+  transition: none !important;
+}
+
+.all-rooms .activate:hover {
+  background-color: green !important;
+  color: white !important;
+}
+
+.all-rooms .activate {
+  border: 1px solid green !important;
+  color: green !important;
+}
+
+.all-rooms .action-btn svg {
+  height: 12px !important;
+  width: 12px !important;
+}
+
 
 #room .room-header {
   display: flex;
   justify-content: space-between;
   gap: 20px;
-  padding-bottom: 8px;
+  padding-bottom: 2px;
 }
 
 #room .room-header .room-heading {
@@ -1003,7 +1044,7 @@ button:disabled {
   align-items: center;
   justify-content: center;
   background-color: #fff;
-  border: 2px solid var(--secondary);
+  border: 1px solid var(--secondary);
   cursor: pointer;
   transition: all 600ms;
 }
@@ -1031,7 +1072,7 @@ button:disabled {
   align-items: center;
   justify-content: center;
   background-color: #fff;
-  border: 2px solid var(--error);
+  border: 1px solid var(--error);
   cursor: pointer;
   transition: all 600ms;
 }
@@ -1587,6 +1628,11 @@ input[type="radio"] {
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 768px) {
+
+  #room .all-rooms {
+    grid-template-columns: 1fr;
+  }
+
   #addSession-modal .input {
     min-width: 25%;
   }

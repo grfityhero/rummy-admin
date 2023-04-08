@@ -136,3 +136,27 @@ export function verifyEmailAction(params, callback) {
             callback({ error: getError(error) });
         });
 }
+
+
+
+export function getPercentageActions(callback) {
+    axios.get(`${URLS.API}/app`, API_CONFIG)
+        .then(function (response) {
+
+            callback({ data: response.data.data })
+        })
+        .catch(function (error) {
+            callback({ error: getError(error) })
+        })
+}
+
+export function updatePerAction(params, callback) {
+    axios.put(`${URLS.API}/app`, params, API_CONFIG)
+        .then(function (response) {
+
+            callback({ data: response.data.data })
+        })
+        .catch(function (error) {
+            callback({ error: getError(error) })
+        })
+}

@@ -5,6 +5,7 @@ import Header from "../components/Header"
 import Loading from "../components/Loading"
 import { DataGridPro as DataGrid, GridToolbar, useGridApiRef } from "@mui/x-data-grid-pro"
 import { isMobile } from "react-device-detect"
+import { convertDate } from "../utils/commonUtils"
 
 export default function AllReports() {
   const apiRef = useGridApiRef()
@@ -55,7 +56,7 @@ export default function AllReports() {
     },
     {
       field: "roomCost",
-      headerName: "Room Cost",
+      headerName: "Cost",
       sortable: true,
       flex: 1,
       mFlex: 11,
@@ -63,15 +64,15 @@ export default function AllReports() {
       type: "number"
 
     },
-    {
-      field: "playersNum",
-      headerName: "Players Num",
-      sortable: false,
-      flex: 1,
-      mFlex: 11,
-      filterable: true,
-      type: "number"
-    },
+    // {
+    //   field: "playersNum",
+    //   headerName: "Players Num",
+    //   sortable: false,
+    //   flex: 1,
+    //   mFlex: 11,
+    //   filterable: true,
+    //   type: "number"
+    // },
     {
       field: "status",
       headerName: "Status",
@@ -86,11 +87,24 @@ export default function AllReports() {
       field: "type",
       headerName: "Type",
       sortable: true,
-      flex: 1,
       mFlex: 15,
       filterable: true,
       type: "singleSelect",
       valueOptions: ["public", "private"]
+    },
+    {
+      field: "createdAt",
+      headerName: "Date",
+      sortable: true,
+      flex: 1,
+      mFlex: 11,
+      filterable: true,
+      type: "date",
+      renderCell: (v) => {
+        console.log(v)
+        return <div>{convertDate(v.row.createdAt)}</div>
+      }
+      // valueOptions: ["new", "active", "over", "cancled"]
     },
     {
       field: "players",
