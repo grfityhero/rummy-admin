@@ -153,19 +153,19 @@ export default function AllReports() {
       }
     },
     {
-      field: "adminFee",
+      field: "percentage",
       headerName: "Admin Fee",
       sortable: true,
       filterable: true,
       flex: 1,
       mFlex: 15,
       type: "number",
-      renderCell: (v) => {
-        const cost = parseInt(v.row.roomCost || "0")
-        const playerNum = v.row.playersNum || 2
-        const total = cost * (playerNum)
-        return <div>{total - (v.row.winnerPoints || total)}</div>
-      }
+      // renderCell: (v) => {
+      //   const cost = parseInt(v.row.roomCost || "0")
+      //   const playerNum = v.row.playersNum || 2
+      //   const total = cost * (playerNum)
+      //   return <div>{total - (v.row.winnerPoints || total)}</div>
+      // }
     }
   ]
 
