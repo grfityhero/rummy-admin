@@ -19,7 +19,7 @@ export default function AllReports() {
     getUsers()
   }, [])
 
-  const limit = 10
+  const limit = 200
   const getReports = (page) => {
     getRoomActions(({ data, error }) => {
       if (error) {
