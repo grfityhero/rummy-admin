@@ -11,7 +11,7 @@ export default function AllReports() {
   const apiRef = useGridApiRef()
   const [reports, setReports] = useState([])
   const [error, setError] = useState("")
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   const [users, setUsers] = useState([])
 
   useEffect(() => {
@@ -59,7 +59,10 @@ export default function AllReports() {
       flex: 1,
       mFlex: 4,
       filterable: true,
-      type: "number"
+      type: "number",
+      renderCell: (v) => {
+        return <div>{v.row.code}</div>
+      }
     },
     // {
     //   field: "playersNum",
@@ -98,7 +101,6 @@ export default function AllReports() {
       filterable: true,
       type: "date",
       renderCell: (v) => {
-        console.log(v)
         return <div>{convertDate(v.row.createdAt)}</div>
       }
       // valueOptions: ["new", "active", "over", "cancled"]
@@ -223,7 +225,7 @@ export default function AllReports() {
           </div>
           {loading ? (
             <Loading />
-          ) : (room && room.length === 0) || error ? (
+          ) : (reports && reports.length === 0) || error ? (
             <div className="text-center my-6">{error || "No Data"}</div>
           ) : (<div style={{ height: 700, width: "100%" }}>
             <DataGrid
