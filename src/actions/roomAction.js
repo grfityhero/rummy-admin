@@ -3,15 +3,24 @@ import { getError } from "../utils/commonUtils";
 import { URLS, API_CONFIG, getUserId } from "./constant"
 
 
-export function getRoomActions(callback, status) {
+export function getRoomActions(callback, status, limit, skip) {
     // const userId = getUserId()
     const query = {}
     // query.userId = userId
     if (status) {
-        query.status = "active"
+        query.status = status
     }
     const where = JSON.stringify(query)
-    axios.get(`${URLS.API}/room?where=${where}`, API_CONFIG)
+    let url = `${URLS.API}/room?where=${where}`
+
+    if (limit) {
+        url = url + "&limit=" + limit
+    }
+    if (skip) {
+        url = url + "&skip=" + skip
+    }
+
+    axios.get(url, API_CONFIG)
         .then(function (response) {
 
             callback({ data: response.data.data })

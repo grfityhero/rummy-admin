@@ -11,23 +11,30 @@ export default function AllReports() {
   const apiRef = useGridApiRef()
   const [reports, setReports] = useState([])
   const [error, setError] = useState("")
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
   const [users, setUsers] = useState([])
 
   useEffect(() => {
-    getReports()
+    getReports(0)
     getUsers()
   }, [])
 
-  const getReports = () => {
+  const limit = 10
+  const getReports = (page) => {
     getRoomActions(({ data, error }) => {
-      setLoading(false)
       if (error) {
         setError(error)
+        setLoading(false)
+
       } else {
-        setReports(data)
+        setReports(arr => [...arr, ...data])
+        if (data.length === limit) {
+          getReports(page + 1)
+        } else {
+          setLoading(false)
+        }
       }
-    })
+    }, null, limit, page * limit)
   }
   const getUsers = () => {
     getUsersActions(({ data, error }) => {
@@ -53,16 +60,6 @@ export default function AllReports() {
       mFlex: 4,
       filterable: true,
       type: "number"
-    },
-    {
-      field: "roomCost",
-      headerName: "Cost",
-      sortable: true,
-      flex: 1,
-      mFlex: 11,
-      filterable: true,
-      type: "number"
-
     },
     // {
     //   field: "playersNum",
@@ -139,7 +136,17 @@ export default function AllReports() {
       }
     },
     {
-      field: "prize",
+      field: "roomCost",
+      headerName: "Cost",
+      sortable: true,
+      flex: 1,
+      mFlex: 11,
+      filterable: true,
+      type: "number"
+
+    },
+    {
+      field: "winnerPoints",
       headerName: "Prize",
       sortable: true,
       filterable: true,
@@ -160,12 +167,12 @@ export default function AllReports() {
       flex: 1,
       mFlex: 15,
       type: "number",
-      // renderCell: (v) => {
-      //   const cost = parseInt(v.row.roomCost || "0")
-      //   const playerNum = v.row.playersNum || 2
-      //   const total = cost * (playerNum)
-      //   return <div>{total - (v.row.winnerPoints || total)}</div>
-      // }
+      renderCell: (v) => {
+        const cost = parseInt(v.row.roomCost || "0")
+        const playerNum = v.row.playersNum || 2
+        const total = cost * (playerNum)
+        return <div>{`${(total - (v.row.winnerPoints || total))} (${v.row.percentage || 0}%)`}</div>
+      }
     }
   ]
 
