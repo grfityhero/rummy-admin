@@ -488,7 +488,7 @@ a {
 }
 
 .data-heading {
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 600;
   min-width: 50px;
   display: inline-block;
@@ -498,7 +498,7 @@ a {
 }
 
 .data-desc {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
 }
 

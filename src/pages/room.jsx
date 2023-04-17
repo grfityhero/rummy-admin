@@ -106,11 +106,11 @@ export default function Room() {
                     </div>
                   </div>
 
-                  <div><span className="data-heading">code:</span><span className="data-desc">{e.code}</span></div>
-                  <div><span className="data-heading">Cost:</span><span className="data-desc">{e.roomCost}</span></div>
-                  <div><span className="data-heading">Players Num:</span><span className="data-desc">{e.playersNum}</span></div>
-                  <div><span className="data-heading">Players: </span><span className="data-desc">{e.players.map(e => e + ", ")}</span></div>
-                  {e.winner && <div><span className="data-heading">Winner: </span><span className="data-desc">{e.winner}</span></div>}
+                  <div className="data-container"><span className="data-heading">code:</span><span className="data-desc">{e.code}</span></div>
+                  <div className="data-container"><span className="data-heading">Cost:</span><span className="data-desc">{e.roomCost}</span></div>
+                  <div className="data-container"><span className="data-heading">Players Num:</span><span className="data-desc">{e.playersNum}</span></div>
+                  <div className="data-container"><span className="data-heading">Players: </span><span className="data-desc">{e.players.map(e => e + ", ")}</span></div>
+                  {e.winner && <div className="data-container"><span className="data-heading">Winner: </span><span className="data-desc">{e.winner}</span></div>}
 
                   {/* <img
                         src={e.image || "https://www.fkointech.com/images/services/WD.webp"}

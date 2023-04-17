@@ -941,7 +941,7 @@ button:disabled {
 }
 
 #room {
-  padding-top: 40px;
+  padding-top: 20px;
   padding-bottom: 40px;
 }
 
@@ -967,7 +967,7 @@ button:disabled {
 }
 
 #room .room-card {
-  padding: 12px;
+  padding: 8px;
   background-color: #fbfbfb;
   border-radius: 8px;
   border: 1px solid #00000033;
@@ -976,9 +976,13 @@ button:disabled {
   position: relative;
 }
 
+#room .all-rooms .data-container {
+  line-height: 1;
+}
+
 #room .all-rooms {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   gap: 8px;
 }
 
@@ -1026,7 +1030,7 @@ button:disabled {
 #room .room-header .room-heading {
   margin-top: 0;
   margin-bottom: 0;
-  font-size: 20px;
+  font-size: 14px;
   font-weight: 600;
   text-transform: capitalize;
 }
